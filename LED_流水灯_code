@@ -1,0 +1,42 @@
+# include <reg51.h>
+
+//延时2函数
+void delay_2s()
+{
+    unsigned char i,j;
+    for(i=0;i<10;i++)
+        for(j=0;j<120;j++);
+}
+// void delay_2s()
+// {
+//     unsigned char i,j;
+//     for(i=0;i<10;i++)
+//         for(j=0;j<120;j++);
+// }
+//主函数
+void main()
+{
+    while(1)
+    {
+        //8个led闪烁
+        P2=0x01;
+        delay_2s();
+        P2=0x02;
+        delay_2s();
+        P2=0x04;
+        delay_2s();
+        P2=0x08;
+        delay_2s();
+        P2=0x10;
+        delay_2s();
+        P2=0x20;
+        delay_2s();
+        P2=0x40;
+        delay_2s();
+        P2=0x80;
+        delay_2s();
+
+    }
+
+
+}
