@@ -1,0 +1,30 @@
+# include<reg51.h>
+
+int main(){
+    unsigned char a=4,b=2;
+    if (a/b==1)
+    {
+        /* code */
+        P0 = 0xfe;
+
+    }else if(a/b==2){
+        P0 = 0xfd;
+    }else if(a/b==3){
+        P0 = 0xfb;
+    }else if(a/b==4){
+        P0 = 0xf7;
+    }else if(a/b==5){
+        P0 = 0xef;
+    }else if(a/b==6){
+        P0 = 0xdf; 
+    }else if(a/b==7){
+        P0 = 0xbf;
+    }else if(a/b==8){
+        P0 = 0x7f;
+        }
+        else P0 = 0xff;
+
+               while (1);
+    
+    
+}
