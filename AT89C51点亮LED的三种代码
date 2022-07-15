@@ -1,0 +1,59 @@
+# include<reg51.h>
+# include<intrins.h>
+//延时1s
+void delay(unsigned int i)
+{
+    while(i--);
+}
+
+
+
+// void main(void){
+// //定义三个无符号字符型变量
+//     unsigned char led,a,b;
+//     //初始化led变量
+//     led=0xfe;
+//     //while()
+//     while(1){
+//         P0=led;
+//         a = led>>7;
+//         b = led<<1;
+//         led = b|a;
+//         delay(100000);
+
+
+
+
+
+
+//     }
+// }
+void main(){
+    unsigned char i,led = 0xfc;
+    
+        for(i=0;i<8;i++){
+            P0 = led;
+            led = _cror_(led,2);
+            delay(100000);
+        }
+        for(i=0;i<8;i++){
+            P1 = led;
+            led = _cror_(led,2);
+            delay(100000);
+        }
+        for(i=0;i<8;i++){
+            P2 = led;
+            led = _cror_(led,2);
+            delay(100000);
+        }
+        for(i=0;i<8;i++){
+            P3 = led;
+            led = _cror_(led,2);
+            delay(100000);
+        }
+        
+    
+    
+    
+    
+}
