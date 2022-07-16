@@ -1,0 +1,23 @@
+# include<reg51.h>
+//延时函数
+void delay(unsigned int i)
+{
+    while(i--);
+}
+int main(){ 
+    unsigned char Code[] = {0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f};
+    unsigned char *p = &Code[0];
+    unsigned char i;
+    while (1)
+    {
+        for (i = 0; i < 8; i++)
+        {
+            /* code */
+            P0 = *(p+i);
+            delay(100);
+        }
+        
+    }
+    
+
+}
