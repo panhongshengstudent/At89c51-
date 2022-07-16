@@ -1,0 +1,39 @@
+# include <reg51.h>
+#define LED P1
+sbit KEY = P3^3; 
+bit flag = 0;
+//延时函数
+void delay(unsigned int i)
+{
+    while(i--);
+}
+
+
+int main(){
+    IT1 = 1;//设置边沿触发方式
+    EA = 1;
+    EX1 = 1;
+    LED = 0xff;//发光二极管灭
+    while(1){
+        if(flag){//如果按键按下
+            delay(100);//延时100ms
+            if (!KEY)//如果按键按下
+                LED = 0x00;//发光二极管亮
+            {
+                
+                while (!KEY);//等待按键抬起
+                
+                LED = ~LED;//反转二极管状态
+             }    
+                flag = 0;//清除标志位
+                EX1 = 1;//清除中断标志位
+           
+            
+        }
+    }
+}
+void int1(void) interrupt 2//中断服务程序
+{
+    flag = 1;//设置标志位
+    EX1 = 0;//清除中断标志位
+}
